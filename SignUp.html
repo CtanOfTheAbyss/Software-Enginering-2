@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro - Borisnacks</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .signup-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+      color: white;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    input::placeholder {
+      color: #ddd;
+    }
+
+    .boton {
+      background-color: #5a67d8;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .boton:hover {
+      background-color: #434190;
+    }
+
+    .error {
+      color: #ffbaba;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h2>Crear Cuenta</h2>
+    <form id="signupForm">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="text" id="Apellido" placeholder="Apellido" required />
+      <input type="email" id="email" placeholder="Correo electrónico" required />
+      <input type="password" id="password" placeholder="Contraseña" required />
+      <input type="password" id="confirm" placeholder="Confirmar contraseña" required />
+      <p id="errorMsg" class="error"></p>
+      <button type="submit" class="boton">Registrarse</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (password !== confirm) {
+        errorMsg.textContent = "Las contraseñas no coinciden.";
+        return;
+      }
+
+      // Simula registro exitoso
+      alert("¡Registro exitoso, " + username + "!");
+      form.reset();
+      errorMsg.textContent = "";
+    });
+  </script>
+
+</body>
+</html>

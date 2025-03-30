@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos - Borisnacks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightyellow;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: darkorange;
+      margin-bottom: 30px;
+    }
+
+    .productos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .producto {
+      background-color: white;
+      border: 2px solid orange;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .producto h3 {
+      margin-bottom: 5px;
+    }
+
+    .producto p {
+      margin: 5px 0;
+    }
+
+    .producto button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .producto button:hover {
+      background-color: darkgreen;
+    }
+
+    .ver-carrito {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 25px;
+      background-color: darkblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 16px;
+      text-decoration: none;
+      width: 200px;
+    }
+
+    .ver-carrito:hover {
+      background-color: navy;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥨 Productos Borisnacks</h1>
+
+  <div class="productos">
+    <div class="producto">
+      <h3>Papas Fritas</h3>
+      <p>Precio: $1.50</p>
+      <button onclick="agregarAlCarrito('Papas Fritas', 1.50)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Refresco</h3>
+      <p>Precio: $1.00</p>
+      <button onclick="agregarAlCarrito('Refresco', 1.00)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Galletas</h3>
+      <p>Precio: $2.00</p>
+      <button onclick="agregarAlCarrito('Galletas', 2.00)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <h3>Chocolate</h3>
+      <p>Precio: $2.50</p>
+      <button onclick="agregarAlCarrito('Chocolate', 2.50)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <a class="ver-carrito" href="carrito.html">Finalizar compra</a>
+
+  <script>
+    // Guardar el carrito en localStorage
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function agregarAlCarrito(nombre, precio) {
+      const productoExistente = carrito.find(p => p.nombre === nombre);
+      if (productoExistente) {
+        productoExistente.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`"${nombre}" fue agregado al carrito.`);
+    }
+  </script>
+
+</body>
+</html>

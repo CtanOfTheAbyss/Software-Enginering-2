@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finalizar Compra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightblue;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: darkblue;
+      margin-bottom: 20px;
+    }
+
+    table {
+      margin: 0 auto;
+      background-color: white;
+      border-collapse: collapse;
+      width: 80%;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid gray;
+      padding: 10px;
+    }
+
+    th {
+      background-color: lightgray;
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .boton {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .confirmar {
+      background-color: green;
+    }
+
+    .confirmar:hover {
+      background-color: darkgreen;
+    }
+
+    .volver {
+      background-color: gray;
+      margin-top: 10px;
+    }
+
+    .volver:hover {
+      background-color: black;
+    }
+
+    .mensaje {
+      font-size: 20px;
+      color: darkgreen;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Finalizar Compra</h1>
+
+  <div id="resumenCompra"></div>
+  <div class="total" id="totalCompra"></div>
+
+  <button class="boton confirmar" onclick="confirmarCompra()">Confirmar Compra</button><br>
+  <button class="boton volver" onclick="window.location.href='productos.html'">Volver a Productos</button>
+
+  <p class="mensaje" id="mensajeFinal"></p>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function mostrarResumen() {
+      const resumenDiv = document.getElementById("resumenCompra");
+      const totalDiv = document.getElementById("totalCompra");
+
+      if (carrito.length === 0) {
+        resumenDiv.innerHTML = "<p>Tu carrito está vacío.</p>";
+        totalDiv.textContent = "";
+        return;
+      }
+
+      let total = 0;
+      let tabla = "<table><tr><th>Producto</th><th>Cantidad</th><th>Subtotal</th></tr>";
+
+      carrito.forEach(p => {
+        let subtotal = p.precio * p.cantidad;
+        total += subtotal;
+        tabla += `<tr><td>${p.nombre}</td><td>${p.cantidad}</td><td>$${subtotal.toFixed(2)}</td></tr>`;
+      });
+
+      tabla += "</table>";
+      resumenDiv.innerHTML = tabla;
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function confirmarCompra() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      // Simular envío de orden aquí (opcional: AJAX, base de datos, etc.)
+      document.getElementById("mensajeFinal").textContent = "✅ ¡Gracias por tu compra!";
+
+      // Limpiar carrito
+      localStorage.removeItem("carrito");
+      carrito = [];
+      document.getElementById("resumenCompra").innerHTML = "";
+      document.getElementById("totalCompra").textContent = "";
+    }
+
+    // Mostrar resumen al cargar
+    mostrarResumen();
+  </script>
+
+</body>
+</html>

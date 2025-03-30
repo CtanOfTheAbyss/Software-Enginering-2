@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil - Borisnacks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: lightgoldenrodyellow;
+    }
+
+    nav {
+      background-color: darkorange;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .perfil-container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      color: darkorange;
+      margin-bottom: 20px;
+    }
+
+    .perfil-info {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .perfil-info p {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .boton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: darkblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .boton:hover {
+      background-color: navy;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Borisnacks</div>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="carrito.html">Carrito</a></li>
+      <li><a href="about.html">Sobre Nosotros</a></li>
+    </ul>
+  </nav>
+
+  <!-- PERFIL -->
+  <div class="perfil-container">
+    <h2>👤 Mi Perfil</h2>
+    <div class="perfil-info" id="infoUsuario">
+      <p><strong>Nombre:</strong> John doe</p>
+      <p><strong>Correo electrónico:</strong> john@example.com</p>
+      <p><strong>Dirección:</strong> Calle Snack #123, Arecibo, PR</p>
+      <p><strong>Teléfono:</strong> (787) 123-4567</p>
+    </div>
+    <a class="boton" href="productos.html">Volver a la tienda</a>
+  </div>
+
+  <footer>
+    © 2025 Borisnacks. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
