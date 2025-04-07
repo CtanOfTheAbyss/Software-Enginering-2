@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finalizar Compra - Borisnacks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: darkorange;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      color: darkorange;
+      margin-bottom: 30px;
+    }
+
+    .producto-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      background-color: #f3f3f3;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .producto-card p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .producto-card .cantidad {
+      font-weight: bold;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .botones {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .boton {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .confirmar {
+      background-color: green;
+    }
+
+    .confirmar:hover {
+      background-color: darkgreen;
+    }
+
+    .volver {
+      background-color: gray;
+    }
+
+    .volver:hover {
+      background-color: black;
+    }
+
+    .mensaje {
+      text-align: center;
+      font-size: 18px;
+      color: green;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>🛒 Finalizar Compra</header>
+
+  <div class="container">
+    <h2>Resumen de tu compra</h2>
+    <div id="resumenCompra"></div>
+    <div class="total" id="totalCompra"></div>
+
+    <div class="botones">
+      <button class="boton confirmar" onclick="confirmarCompra()">Confirmar Compra</button>
+      <button class="boton volver" onclick="window.location.href='productos.html'">Volver a Productos</button>
+    </div>
+
+    <p class="mensaje" id="mensajeFinal"></p>
+  </div>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function mostrarResumen() {
+      const resumenDiv = document.getElementById("resumenCompra");
+      const totalDiv = document.getElementById("totalCompra");
+
+      if (carrito.length === 0) {
+        resumenDiv.innerHTML = "<p style='text-align:center;'>Tu carrito está vacío.</p>";
+        totalDiv.textContent = "";
+        return;
+      }
+
+      let total = 0;
+      let html = "";
+
+      carrito.forEach(p => {
+        let subtotal = p.precio * p.cantidad;
+        total += subtotal;
+        html += `
+          <div class="producto-card">
+            <p>${p.nombre}</p>
+            <p class="cantidad">${p.cantidad} x $${p.precio.toFixed(2)} = $${subtotal.toFixed(2)}</p>
+          </div>
+        `;
+      });
+
+      resumenDiv.innerHTML = html;
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function confirmarCompra() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      document.getElementById("mensajeFinal").textContent = "✅ ¡Gracias por tu compra!";
+      localStorage.removeItem("carrito");
+      carrito = [];
+      document.getElementById("resumenCompra").innerHTML = "";
+      document.getElementById("totalCompra").textContent = "";
+    }
+
+    mostrarResumen();
+  </script>
+
+</body>
+</html>

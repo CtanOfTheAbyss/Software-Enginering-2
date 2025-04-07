@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Borisnacks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .checkout-container {
+      max-width: 960px;
+      margin: 50px auto;
+      display: flex;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .left-box, .right-box {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .left-box {
+      flex: 2;
+    }
+
+    .right-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    h2 {
+      color: darkorange;
+      margin-bottom: 20px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item-name {
+      font-weight: 500;
+    }
+
+    .item-subtotal {
+      color: #444;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn.confirm {
+      background-color: green;
+      color: white;
+    }
+
+    .btn.confirm:hover {
+      background-color: darkgreen;
+    }
+
+    .btn.back {
+      background-color: gray;
+      color: white;
+    }
+
+    .btn.back:hover {
+      background-color: black;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 30px;
+      color: green;
+    }
+
+    @media (max-width: 768px) {
+      .checkout-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+
+    <!-- Resumen de compra -->
+    <div class="left-box">
+      <h2>Resumen de tu compra</h2>
+      <div id="resumenCompra"></div>
+      <div class="total" id="totalCompra"></div>
+    </div>
+
+    <!-- Confirmar y volver -->
+    <div class="right-box">
+      <div class="actions">
+        <button class="btn confirm" onclick="confirmarCompra()">Confirmar Compra</button>
+        <button class="btn back" onclick="window.location.href='productos.html'">Volver a Productos</button>
+      </div>
+      <p class="message" id="mensajeFinal"></p>
+    </div>
+
+  </div>
+
+  <script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function mostrarResumen() {
+      const resumenDiv = document.getElementById("resumenCompra");
+      const totalDiv = document.getElementById("totalCompra");
+
+      if (carrito.length === 0) {
+        resumenDiv.innerHTML = "<p>Tu carrito está vacío.</p>";
+        totalDiv.textContent = "";
+        return;
+      }
+
+      let total = 0;
+      let html = "";
+
+      carrito.forEach(p => {
+        let subtotal = p.precio * p.cantidad;
+        total += subtotal;
+        html += `
+          <div class="item">
+            <div class="item-name">${p.nombre} (x${p.cantidad})</div>
+            <div class="item-subtotal">$${subtotal.toFixed(2)}</div>
+          </div>
+        `;
+      });
+
+      resumenDiv.innerHTML = html;
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function confirmarCompra() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      document.getElementById("mensajeFinal").textContent = "✅ ¡Gracias por tu compra!";
+      localStorage.removeItem("carrito");
+      carrito = [];
+      document.getElementById("resumenCompra").innerHTML = "";
+      document.getElementById("totalCompra").textContent = "";
+    }
+
+    mostrarResumen();
+  </script>
+
+</body>
+</html>
