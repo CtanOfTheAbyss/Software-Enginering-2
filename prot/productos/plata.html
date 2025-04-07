@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BoriSnacks | Platanutres</title>
+  <link rel="stylesheet" href="/static/styles/base.css">
+  <link rel="stylesheet" href="/static/styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .main-content {
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-container {
+      display: flex;
+      max-width: 1100px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+
+    .product-image {
+      flex: 1 1 400px;
+      background-color: #fff0da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      flex: 1 1 500px;
+      padding: 40px 30px;
+    }
+
+    .product-info h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .price-stock {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #666;
+      display: flex;
+      gap: 30px;
+    }
+
+    .product-description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .buttons button {
+      flex: 1;
+      padding: 12px 18px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-buy {
+      background-color: green;
+      color: white;
+    }
+
+    .btn-buy:hover {
+      background-color: darkgreen;
+    }
+
+    .btn-cart {
+      background-color: darkorange;
+      color: white;
+    }
+
+    .btn-cart:hover {
+      background-color: orangered;
+    }
+
+    @media (max-width: 768px) {
+      .product-container {
+        flex-direction: column;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="/"><img src="/static/images/borisnacks.png" alt="Logo" class="navbar-logo"></a>
+    <ul class="navbar-items">
+      <li class="dropdown">
+        <div class="btn-products-container">
+          <a href="#" class="button-products">Products</a>
+          <i data-feather="chevron-down"></i>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a href="/snacks">Snacks</a></li>
+          <li><a href="/drinks">Drinks</a></li>
+          <li><a href="/candy">Candy</a></li>
+          <li><a href="/all_products">All Products</a></li>
+        </ul>
+      </li>
+      <li><a href="/carrito" class="buttons"><i data-feather="shopping-cart"></i></a></li>
+      <li><a href="/profile" class="buttons"><i data-feather="user"></i></a></li>
+    </ul>
+  </nav>
+
+  <!-- PRODUCT SECTION -->
+  <div class="main-content">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="/static/images/imagen18.png" alt="Platanutres">
+      </div>
+      <div class="product-info">
+        <h2>Platanutres</h2>
+        <div class="price-stock">
+          <span>$2.49</span>
+          <span>27 in stock</span>
+        </div>
+        <p class="product-description">
+          Platanutres are a popular fried plantain snack, widely consumed in Puerto Rico. Made from thinly sliced green plantains and fried until golden and crispy, they offer a satisfying salty crunch. Perfect as a snack, side dish, or any-time munch.
+        </p>
+        <div class="buttons">
+          <button class="btn-buy">Buy Now</button>
+          <button class="btn-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer">
+      <div class="footer-blocks">
+        <a href="/"><img src="/static/images/borisnacks.png" alt="" class="navbar-logo"></a>
+        <p class="copyright">
+          © <span class="year">2025</span> BoriSnacks, Inc. All rights reserved.
+        </p>
+      </div>
+      <div class="footer-blocks">
+        <p>Contact Us</p>
+        <ul class="footer-links">
+          <li>123 Avenida Bori, San Juan, PR 00926</li>
+          <li><a href="#">415-201-6370</a></li>
+          <li><a href="mailto:borisnacks2025@gmail.com">borisnacks2025@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-blocks">
+        <p>Account & Info</p>
+        <ul class="footer-links">
+          <li><a href="/registro">Sign Up</a></li>
+          <li><a href="/login">Log in</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/scripts/script.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>
