@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - Borisnacks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background-color: darkorange;
+      color: white;
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tabs button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .tabs button.active {
+      border-bottom: 2px solid darkorange;
+      color: darkorange;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content h2 {
+      margin-bottom: 20px;
+      color: darkorange;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .btn-save {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: darkorange;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-save:hover {
+      background-color: orangered;
+    }
+
+    @media screen and (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Borisnacks - My Profile</header>
+
+  <div class="wrapper">
+    
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="profile"><i class="fa fa-user"></i> Profile</button>
+      <button class="tab-btn" data-tab="orders"><i class="fa fa-box"></i> Orders</button>
+      <button class="tab-btn" data-tab="address"><i class="fa fa-map-marker-alt"></i> Address</button>
+      <button class="tab-btn" data-tab="settings"><i class="fa fa-cog"></i> Settings</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="profile" class="tab-content active">
+      <h2>Profile Information</h2>
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" value="Bobby Rivera">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" value="bobby@example.com">
+      </div>
+      <button class="btn-save">Save Changes</button>
+    </div>
+
+    <div id="orders" class="tab-content">
+      <h2>My Orders</h2>
+      <p>You haven't placed any orders yet.</p>
+    </div>
+
+    <div id="address" class="tab-content">
+      <h2>Shipping Address</h2>
+      <div class="field">
+        <label>Address</label>
+        <input type="text" value="123 Snack Blvd, Arecibo, PR">
+      </div>
+      <button class="btn-save">Update Address</button>
+    </div>
+
+    <div id="settings" class="tab-content">
+      <h2>Account Settings</h2>
+      <p>Here you can manage your preferences.</p>
+    </div>
+
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Borisnacks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffdf5;
+      color: #333;
+    }
+
+    header {
+      background-color: darkorange;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .text {
+      flex: 1 1 400px;
+      padding: 20px;
+    }
+
+    .text h2 {
+      color: darkorange;
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
+
+    .text p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .image {
+      flex: 1 1 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .image img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-back {
+      display: block;
+      margin: 50px auto 20px;
+      padding: 12px 30px;
+      background-color: darkblue;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-back:hover {
+      background-color: navy;
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>About Us</h1>
+    <p>Your favorite Puerto Rican snack brand 🇵🇷</p>
+  </header>
+
+  <section class="section">
+    <div class="text">
+      <h2>Who Are We?</h2>
+      <p><strong>Borisnacks</strong> is a Puerto Rican company born in 2025, founded by a group of young entrepreneurs with a passion for flavor and creativity. We are dedicated to offering unique, high-quality, and local snacks with personality.</p>
+    </div>
+    <div class="image">
+      <img src="https://images.unsplash.com/photo-1606813909028-41da05ff8491" alt="Snack Team">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="image">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Snack Table">
+    </div>
+    <div class="text">
+      <h2>Our Vision</h2>
+      <p>We aim to become a nationally recognized snack brand with a local heart—known for quality, authentic flavor, innovation, and sustainable practices. We want to feed more than just your hunger—we want to bring joy.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="text">
+      <h2>What Makes Us Different?</h2>
+      <p>
+        ✅ Locally-sourced, fresh ingredients<br>
+        ✅ Unique and creative flavors<br>
+        ✅ Customer-first service<br>
+        ✅ Fun, bold packaging and branding
+      </p>
+    </div>
+    <div class="image">
+      <img src="https://images.unsplash.com/photo-1606312614924-5b4bd101c35b" alt="Unique Snacks">
+    </div>
+  </section>
+
+  <a class="btn-back" href="index.html">← Back to Home</a>
+
+  <footer>
+    © 2025 Borisnacks. All rights reserved.
+  </footer>
+
+</body>
+</html>

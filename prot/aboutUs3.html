@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Borisnacks – Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1543353071-873f17a7a088') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: darkorange;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: darkorange;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .intro p {
+      text-align: center;
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .specials {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      margin: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .blog-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .post {
+      background-color: #1c1c1c;
+      width: 260px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .post h3 {
+      color: orange;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      font-size: 14px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: darkorange;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    a.btn:hover {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Borisnacks</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#specials">Specialties</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Welcome to Borisnacks</h1>
+    <p>Your local flavor, reimagined. Taste the future of snacking.</p>
+  </header>
+
+  <section class="intro">
+    <h2>About Us</h2>
+    <p>We’re not just a snack company. We’re a movement. Born in Puerto Rico, Borisnacks creates unique, bold, and unforgettable snacks inspired by our roots and made for today’s tastes.</p>
+  </section>
+
+  <section id="specials">
+    <h2>Signature Snacks</h2>
+    <div class="specials">
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?chips" alt="Chips">
+        <h3>Island Chips</h3>
+        <p>Crunchy, salty, and perfectly seasoned with Caribbean spice.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?cookies" alt="Cookies">
+        <h3>Guava Cookies</h3>
+        <p>Sweet guava meets buttery crunch in every bite.</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?juice" alt="Juice">
+        <h3>Fruit Punch</h3>
+        <p>A vibrant tropical mix of real fruit, bold and refreshing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Snack Gallery</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/300x200/?snacks">
+      <img src="https://source.unsplash.com/300x200/?candy">
+      <img src="https://source.unsplash.com/300x200/?food">
+      <img src="https://source.unsplash.com/300x200/?dessert">
+      <img src="https://source.unsplash.com/300x200/?baking">
+      <img src="https://source.unsplash.com/300x200/?fruit">
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Latest News</h2>
+    <div class="blog-cards">
+      <div class="post">
+        <h3>We Opened a New Location!</h3>
+        <p>Come visit our new snack shack in Arecibo. Grand opening specials all week long.</p>
+      </div>
+      <div class="post">
+        <h3>New Flavor Alert!</h3>
+        <p>Introducing “Piña Loca”—sweet, tangy, tropical goodness in every bite.</p>
+      </div>
+      <div class="post">
+        <h3>Our Story Featured</h3>
+        <p>We’re honored to be featured in “Flavors of the Caribbean” magazine. Read more about our journey.</p>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="#" class="btn">View All Posts</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Borisnacks. All rights reserved.
+  </footer>
+
+</body>
+</html>
