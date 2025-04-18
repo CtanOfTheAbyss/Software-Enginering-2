@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout Estilo Moderno</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f2f6;
+    }
+
+    .wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: #2f3542;
+      color: white;
+      padding: 40px 20px;
+      width: 300px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .checkout-form {
+      flex: 1;
+      padding: 50px;
+      background-color: #fff;
+    }
+
+    .checkout-form h1 {
+      margin-top: 0;
+      color: #2f3542;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .pay-button {
+      background-color: #1e90ff;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    .pay-button:hover {
+      background-color: #006ad1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <!-- Sidebar resumen del pedido -->
+  <div class="sidebar">
+    <h2>Resumen del Pedido</h2>
+    <div class="order-item">
+      <span>Snack Boricua</span>
+      <span>$8.00</span>
+    </div>
+    <div class="order-item">
+      <span>Piragua Premium</span>
+      <span>$5.50</span>
+    </div>
+    <div class="order-item">
+      <span>Envío</span>
+      <span>$3.00</span>
+    </div>
+    <div class="total">
+      Total: $16.50
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <div class="checkout-form">
+    <h1>Información de Pago</h1>
+    <form>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" placeholder="Ricardo A. Adorno" required>
+      </div>
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" placeholder="Calle Principal #123" required>
+      </div>
+      <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" placeholder="Arecibo">
+      </div>
+      <div class="form-group">
+        <label>País</label>
+        <select>
+          <option>Puerto Rico</option>
+          <option>Estados Unidos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Número de Tarjeta</label>
+        <input type="text" placeholder="1234 5678 9012 3456" required>
+      </div>
+      <div class="form-group">
+        <label>Expiración</label>
+        <input type="text" placeholder="MM/AA" required>
+      </div>
+      <div class="form-group">
+        <label>CVV</label>
+        <input type="text" placeholder="123" required>
+      </div>
+      <button class="pay-button" type="submit">Pagar $16.50</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

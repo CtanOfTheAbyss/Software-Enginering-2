@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout Simple</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .checkout-box {
+      background: #f7f7f7;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 15px;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .checkout-summary {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    .checkout-summary p {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .checkout-summary .total {
+      font-weight: bold;
+      color: #000;
+    }
+    button {
+      margin-top: 20px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="checkout-box">
+  <h2>Finaliza tu Compra</h2>
+  <form>
+    <label>Correo Electrónico</label>
+    <input type="email" placeholder="ejemplo@correo.com" required />
+
+    <label>Nombre en la Tarjeta</label>
+    <input type="text" required />
+
+    <label>Número de Tarjeta</label>
+    <input type="text" maxlength="16" required />
+
+    <label>Expiración (MM/AA)</label>
+    <input type="text" placeholder="08/25" required />
+
+    <label>CVV</label>
+    <input type="text" maxlength="4" required />
+
+    <div class="checkout-summary">
+      <p><span>Producto A</span><span>$15.00</span></p>
+      <p><span>Producto B</span><span>$25.00</span></p>
+      <p class="total"><span>Total</span><span>$40.00</span></p>
+    </div>
+
+    <button type="submit">Pagar Ahora</button>
+  </form>
+</div>
+
+</body>
+</html>

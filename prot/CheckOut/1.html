@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .checkout-container {
+      max-width: 900px;
+      margin: 40px auto;
+      display: flex;
+      gap: 30px;
+      padding: 20px;
+    }
+    .left-box, .right-box {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .left-box {
+      flex: 2;
+    }
+    .right-box {
+      flex: 1;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .order-summary {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      padding-top: 15px;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="checkout-container">
+  <div class="left-box">
+    <h2>Dirección de Envío</h2>
+    <form>
+      <label>Nombre Completo</label>
+      <input type="text" required />
+
+      <label>Dirección</label>
+      <input type="text" required />
+
+      <label>Ciudad</label>
+      <input type="text" required />
+
+      <label>Estado / Provincia</label>
+      <input type="text" required />
+
+      <label>Código Postal</label>
+      <input type="text" required />
+
+      <label>País</label>
+      <select>
+        <option>Puerto Rico</option>
+        <option>Estados Unidos</option>
+        <option>Otro</option>
+      </select>
+
+      <h2>Método de Pago</h2>
+      <label>Número de Tarjeta</label>
+      <input type="text" required />
+
+      <label>Fecha de Expiración</label>
+      <input type="text" placeholder="MM/AA" required />
+
+      <label>CVV</label>
+      <input type="text" required />
+    </form>
+  </div>
+
+  <div class="right-box">
+    <h2>Resumen del Pedido</h2>
+    <div>
+      <p>Producto A x1 <span style="float:right;">$10.00</span></p>
+      <p>Producto B x2 <span style="float:right;">$20.00</span></p>
+    </div>
+    <div class="order-summary">
+      <p>Subtotal <span style="float:right;">$30.00</span></p>
+      <p>Envío <span style="float:right;">$5.00</span></p>
+      <p class="total">Total <span style="float:right;">$35.00</span></p>
+    </div>
+    <button>Finalizar Compra</button>
+  </div>
+</div>
+
+</body>
+</html>
